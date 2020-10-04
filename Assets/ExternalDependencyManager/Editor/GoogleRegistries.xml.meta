@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 97112a7909179b2429d1eabaa0e00322
+labels:
+- gumpr_registries
+- gvh
+- gvh_version-6.16.0
+- gvhp_exportpath-ExternalDependencyManager/Editor/GoogleRegistries.xml
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
