@@ -11,7 +11,7 @@ public class AuthManager : MonoBehaviour
     [Header("Firebase")]
     public DependencyStatus dependencyStatus;
     public FirebaseAuth auth;
-    public FirebaseUser User;
+    public FirebaseUser AUser;
 
     //Login variables
     [Header("Login")]
@@ -103,8 +103,8 @@ public class AuthManager : MonoBehaviour
         {
             //User is now logged in
             //Now get the result
-            User = LoginTask.Result;
-            Debug.LogFormat("User signed in successfully: {0} ({1})", User.DisplayName, User.Email);
+            AUser = LoginTask.Result;
+            Debug.LogFormat("User signed in successfully: {0} ({1})", AUser.DisplayName, AUser.Email);
             warningLoginText.text = "";
             confirmLoginText.text = "Logged In";
         }
@@ -158,15 +158,15 @@ public class AuthManager : MonoBehaviour
             {
                 //User has now been created
                 //Now get the result
-                User = RegisterTask.Result;
+                AUser = RegisterTask.Result;
 
-                if (User != null)
+                if (AUser != null)
                 {
                     //Create a user profile and set the username
                     UserProfile profile = new UserProfile { DisplayName = _username };
 
                     //Call the Firebase auth update user profile function passing the profile with the username
-                    var ProfileTask = User.UpdateUserProfileAsync(profile);
+                    var ProfileTask = AUser.UpdateUserProfileAsync(profile);
                     //Wait until the task completes
                     yield return new WaitUntil(predicate: () => ProfileTask.IsCompleted);
 
